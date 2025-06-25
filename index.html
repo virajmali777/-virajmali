@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>FunTools Hub</title>
+
+  <!-- ✅ Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-11400754697"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-11400754697');
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -223,7 +233,6 @@
       document.getElementById(tabId).style.display = 'block';
     }
 
-    // Calculator functions
     function append(value) {
       document.getElementById('display').value += value;
     }
@@ -240,7 +249,6 @@
       }
     }
 
-    // Table generation
     function generateTable() {
       const number = parseInt(document.getElementById('table-input').value);
       const output = document.getElementById('table-output');
@@ -254,7 +262,6 @@
       }
     }
 
-    // Clicking Game
     document.getElementById('click-button').addEventListener('click', () => {
       clickCount += speedMultiplier;
       rupees += 10 * speedMultiplier;
@@ -274,7 +281,21 @@
       }
     }
 
-    // Shooting Game functionality goes here (you can add the shooting game code)
+    // Add shooting game logic here...
+    function startGame() {
+      console.log("Start game called");
+    }
+
+    function upgradeGun(cost) {
+      if (rupees >= cost) {
+        gunUpgradeLevel++;
+        rupees -= cost;
+        alert("Gun upgraded to level " + gunUpgradeLevel);
+        document.getElementById('rupees').innerText = rupees;
+      } else {
+        alert("Not enough rupees!");
+      }
+    }
   </script>
 </body>
 </html>
